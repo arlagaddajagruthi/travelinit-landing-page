@@ -47,15 +47,12 @@ export const Footer = () => {
             transition={{ duration: 0.6 }}
             className="md:col-span-1"
           >
-            <motion.div
+            <motion.img
               whileHover={{ scale: 1.05 }}
-              className="flex items-center space-x-2 mb-4"
-            >
-              <div className="w-10 h-10 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-lg flex items-center justify-center shadow-lg">
-                <span className="text-white font-bold text-lg">✈</span>
-              </div>
-              <span className="text-2xl font-bold text-white">SafeWander</span>
-            </motion.div>
+              src="https://cdn.builder.io/api/v1/image/assets%2F33aab6c1f232494f879f8655f36222ea%2F6ebc9bbf164145e48ad1f2d27e30db25?format=webp&width=800"
+              alt="Travelitin Logo"
+              className="h-12 w-auto mb-4"
+            />
             <p className="text-gray-400 leading-relaxed">
               Making travel safer and more accessible for everyone, everywhere.
             </p>
@@ -117,7 +114,7 @@ export const Footer = () => {
             whileHover={{ scale: 1.05 }}
             className="text-gray-400 mt-4 md:mt-0"
           >
-            <span>© 2024 SafeWander. All rights reserved.</span>
+            <span>© 2024 Travelitin. All rights reserved.</span>
           </motion.div>
         </motion.div>
       </div>

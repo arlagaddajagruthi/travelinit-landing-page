@@ -25,7 +25,7 @@ export const AboutSection = () => {
           >
             About{" "}
             <span className="bg-gradient-to-r from-yellow-600 via-orange-600 to-yellow-600 bg-clip-text text-transparent">
-              SafeWander
+              Travelitin
             </span>
           </motion.h2>
           <motion.p
@@ -33,10 +33,9 @@ export const AboutSection = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed"
           >
-            Born from our own travel mishaps and amazing discoveries, SafeWander
-            is built by travelers, for travelers. We believe everyone deserves
-            to explore this beautiful world with confidence and connect with
-            like-minded adventurers along the way.
+            We're passionate about making travel safer and more accessible for
+            everyone. Our mission is to provide comprehensive safety information
+            and real-time assistance to travelers worldwide.
           </motion.p>
         </AnimatedSection>
 
@@ -45,19 +44,19 @@ export const AboutSection = () => {
             {
               title: "Our Mission",
               description:
-                "To turn every travel dream into reality by connecting adventurers with the right information, people, and experiences.",
+                "To empower travelers with the knowledge and tools they need to explore the world safely and confidently.",
               icon: "🎯",
             },
             {
               title: "Our Vision",
               description:
-                "A global community where sharing travel experiences, tips, and safety advice creates unforgettable journeys for everyone.",
+                "A world where every journey is safe, informed, and memorable, regardless of destination or experience level.",
               icon: "🌟",
             },
             {
               title: "Our Values",
               description:
-                "Real connections, authentic stories, looking out for each other, and believing that the best adventures happen when we explore together.",
+                "Safety first, authentic experiences, community support, and making travel accessible to all.",
               icon: "❤️",
             },
           ].map((item, index) => (
