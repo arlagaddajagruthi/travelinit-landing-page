@@ -14,7 +14,7 @@ export const HeroSection = () => {
       id="home"
       className="relative min-h-screen flex flex-col overflow-hidden"
       style={{
-        backgroundImage: `url('https://cdn.builder.io/api/v1/image/assets%2F33aab6c1f232494f879f8655f36222ea%2F5d9e6b785e1844c29024d2a6122d071b?format=webp&width=800')`,
+        backgroundImage: `url('https://images.pexels.com/photos/5098286/pexels-photo-5098286.jpeg')`,
         backgroundSize: "cover",
         backgroundPosition: "center center",
         backgroundRepeat: "no-repeat",

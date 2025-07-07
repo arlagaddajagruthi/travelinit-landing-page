@@ -47,13 +47,18 @@ export const Header = () => {
             transition={{ duration: 0.8, delay: 0.2, ease: "backOut" }}
             className="flex items-center"
           >
-            <motion.img
+            <motion.div
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              src="https://cdn.builder.io/api/v1/image/assets%2F33aab6c1f232494f879f8655f36222ea%2F6ebc9bbf164145e48ad1f2d27e30db25?format=webp&width=800"
-              alt="Travelitin Logo"
-              className="h-12 w-auto"
-            />
+              className="flex items-center space-x-2"
+            >
+              <div className="w-10 h-10 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-lg flex items-center justify-center shadow-lg">
+                <span className="text-white font-bold text-lg">✈</span>
+              </div>
+              <span className="text-2xl font-bold text-gray-800">
+                SafeWander
+              </span>
+            </motion.div>
           </motion.div>
 
           {/* Desktop Navigation */}
