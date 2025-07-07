@@ -16,7 +16,7 @@ export const HeroSection = () => {
       style={{
         backgroundImage: `url('https://cdn.builder.io/api/v1/image/assets%2F33aab6c1f232494f879f8655f36222ea%2F5d9e6b785e1844c29024d2a6122d071b?format=webp&width=800')`,
         backgroundSize: "cover",
-        backgroundPosition: "center center",
+        backgroundPosition: "center 25%",
         backgroundRepeat: "no-repeat",
       }}
     >
@@ -165,7 +165,7 @@ export const HeroSection = () => {
                 <Button
                   variant="outline"
                   size="lg"
-                  className="border-white text-white hover:bg-white hover:text-gray-900 px-8 py-4 rounded-full text-lg backdrop-blur-sm border-2 shadow-2xl"
+                  className="border-white text-white bg-white/10 hover:bg-white hover:text-gray-900 px-8 py-4 rounded-full text-lg backdrop-blur-sm border-2 shadow-2xl"
                 >
                   <Play className="mr-2 w-5 h-5" />
                   Watch Demo
