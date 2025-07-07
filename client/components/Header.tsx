@@ -7,14 +7,14 @@ import { useStaggerAnimation } from "@/hooks/useScrollAnimation";
 export const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [headerBackground, setHeaderBackground] = useState(
-    "rgba(255, 255, 255, 0)",
+    "rgba(255, 255, 255, 0.1)",
   );
   const { staggerContainer, staggerItem } = useStaggerAnimation();
 
   useEffect(() => {
     const handleScroll = () => {
       const scrollY = window.scrollY;
-      const opacity = Math.min(scrollY / 100, 0.95);
+      const opacity = Math.min(Math.max(scrollY / 100, 0.1), 0.95);
       setHeaderBackground(`rgba(255, 255, 255, ${opacity})`);
     };
 
