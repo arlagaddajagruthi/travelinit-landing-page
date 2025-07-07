@@ -16,7 +16,7 @@ export const HeroSection = () => {
       style={{
         backgroundImage: `url('https://cdn.builder.io/api/v1/image/assets%2F33aab6c1f232494f879f8655f36222ea%2F5d9e6b785e1844c29024d2a6122d071b?format=webp&width=800')`,
         backgroundSize: "cover",
-        backgroundPosition: "center top",
+        backgroundPosition: "center 30%",
         backgroundRepeat: "no-repeat",
       }}
     >
