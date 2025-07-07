@@ -125,8 +125,8 @@ export const HeroSection = () => {
               variants={staggerItem}
               className="text-xl md:text-2xl text-white/90 mb-8 max-w-2xl mx-auto leading-relaxed drop-shadow-lg"
             >
-              Connect with fellow travelers, discover hidden gems, and explore
-              the world with confidence and peace of mind
+              Your ultimate companion for safe and unforgettable journeys around
+              the world
             </motion.p>
 
             {/* CTA Buttons */}
@@ -152,7 +152,7 @@ export const HeroSection = () => {
                     transition={{ duration: 0.3 }}
                   />
                   <span className="relative z-10 flex items-center">
-                    Start Exploring Safely
+                    Start Your Journey
                     <ArrowDown className="ml-2 w-5 h-5" />
                   </span>
                 </Button>
