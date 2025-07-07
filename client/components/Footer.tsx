@@ -49,8 +49,8 @@ export const Footer = () => {
           >
             <motion.img
               whileHover={{ scale: 1.05 }}
-              src="https://images.pexels.com/photos/9410233/pexels-photo-9410233.jpeg"
-              alt="travelinit Logo"
+              src="https://cdn.builder.io/api/v1/image/assets%2F33aab6c1f232494f879f8655f36222ea%2F6ebc9bbf164145e48ad1f2d27e30db25?format=webp&width=800"
+              alt="Travelitin Logo"
               className="h-12 w-auto mb-4"
             />
             <p className="text-gray-400 leading-relaxed">
@@ -114,7 +114,7 @@ export const Footer = () => {
             whileHover={{ scale: 1.05 }}
             className="text-gray-400 mt-4 md:mt-0"
           >
-            <span>© 2024 travelinit. All rights reserved.</span>
+            <span>© 2024 Travelitin. All rights reserved.</span>
           </motion.div>
         </motion.div>
       </div>

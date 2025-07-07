@@ -25,7 +25,7 @@ export const AboutSection = () => {
           >
             About{" "}
             <span className="bg-gradient-to-r from-yellow-600 via-orange-600 to-yellow-600 bg-clip-text text-transparent">
-              travelinit
+              Travelitin
             </span>
           </motion.h2>
           <motion.p

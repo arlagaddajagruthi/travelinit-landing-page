@@ -50,8 +50,8 @@ export const Header = () => {
             <motion.img
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              src="https://images.pexels.com/photos/9410233/pexels-photo-9410233.jpeg"
-              alt="travelinit Logo"
+              src="https://cdn.builder.io/api/v1/image/assets%2F33aab6c1f232494f879f8655f36222ea%2F6ebc9bbf164145e48ad1f2d27e30db25?format=webp&width=800"
+              alt="Travelitin Logo"
               className="h-12 w-auto"
             />
           </motion.div>
