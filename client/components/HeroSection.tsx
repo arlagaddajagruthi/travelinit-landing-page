@@ -1,10 +1,17 @@
-import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { Play, ArrowDown, Shield, Map, AlertTriangle } from "lucide-react";
+import { useStaggerAnimation } from "@/hooks/useScrollAnimation";
+import { motion } from "framer-motion";
+import {
+  AlertTriangle,
+  ArrowDown,
+  Download,
+  Map,
+  Play,
+  Shield
+} from "lucide-react";
+import { CreativeClouds } from "./BackgroundAnimations";
 import { FloatingIcon } from "./FloatingIcon";
 import { ParallaxElement } from "./ParallaxElement";
-import { CreativeClouds } from "./BackgroundAnimations";
-import { useStaggerAnimation } from "@/hooks/useScrollAnimation";
 
 export const HeroSection = () => {
   const { staggerContainer, staggerItem } = useStaggerAnimation();
@@ -123,10 +130,10 @@ export const HeroSection = () => {
             {/* Subtitle */}
             <motion.p
               variants={staggerItem}
-              className="text-xl md:text-2xl text-white/90 mb-8 max-w-2xl mx-auto leading-relaxed drop-shadow-lg"
+              className="text-xl md:text-2xl text-white/90 mb-6 max-w-2xl mx-auto leading-relaxed drop-shadow-lg"
             >
               Your ultimate companion for safe and unforgettable journeys around
-              the world
+              the world with real-time safety updates and expert guidance
             </motion.p>
 
             {/* CTA Buttons */}
@@ -143,7 +150,7 @@ export const HeroSection = () => {
               >
                 <Button
                   size="lg"
-                  className="bg-yellow-400 hover:bg-yellow-500 text-yellow-900 font-bold px-8 py-4 rounded-full text-lg shadow-2xl relative overflow-hidden group"
+                  className="bg-gradient-to-r from-yellow-400 to-orange-400 hover:from-yellow-500 hover:to-orange-500 text-yellow-900 font-bold px-10 py-5 rounded-full text-lg shadow-2xl relative overflow-hidden group"
                 >
                   <motion.div
                     className="absolute inset-0 bg-gradient-to-r from-yellow-300 to-orange-300"
@@ -152,8 +159,8 @@ export const HeroSection = () => {
                     transition={{ duration: 0.3 }}
                   />
                   <span className="relative z-10 flex items-center">
-                    Start Your Journey
-                    <ArrowDown className="ml-2 w-5 h-5" />
+                    <Download className="mr-2 w-5 h-5" />
+                    Download Free App
                   </span>
                 </Button>
               </motion.div>
@@ -171,6 +178,13 @@ export const HeroSection = () => {
                   Watch Demo
                 </Button>
               </motion.div>
+            </motion.div>
+
+            {/* Value Proposition */}
+            <motion.div
+              variants={staggerItem}
+              className="mt-8 text-white/70 text-sm"
+            >
             </motion.div>
           </motion.div>
         </div>

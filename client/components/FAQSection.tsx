@@ -1,9 +1,9 @@
-import { useState } from "react";
+import { useStaggerAnimation } from "@/hooks/useScrollAnimation";
 import { motion } from "framer-motion";
+import { CheckCircle } from "lucide-react";
+import { useState } from "react";
 import { AnimatedSection } from "./AnimatedSection";
 import { CreativeParticleSnow } from "./BackgroundAnimations";
-import { useStaggerAnimation } from "@/hooks/useScrollAnimation";
-import { CheckCircle } from "lucide-react";
 
 export const FAQSection = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
@@ -13,27 +13,32 @@ export const FAQSection = () => {
     {
       question: "Is Travelitin free to use?",
       answer:
-        "Yes! Travelitin offers a comprehensive free tier with essential safety features. We also offer premium plans with advanced features for frequent travelers.",
+        "Yes! Travelitin offers a comprehensive free tier with essential safety features including real-time alerts, basic maps, and community support. We also offer premium plans starting at $9.99/month with advanced features like AI travel assistant, offline maps, and priority 24/7 support.",
     },
     {
-      question: "How accurate is the safety information?",
+      question: "How accurate and up-to-date is the safety information?",
       answer:
-        "Our safety information is sourced from reliable government agencies, local authorities, and real-time data feeds, updated continuously for accuracy.",
+        "Our safety information is sourced from government travel advisories, local embassies, WHO health updates, and verified user reports. Our AI system updates information every 15 minutes, and our safety experts review critical alerts within 30 minutes.",
     },
     {
-      question: "Can I use Travelitin offline?",
+      question: "Can I use Travelitin offline without internet?",
       answer:
-        "Yes! You can download essential safety information and maps for offline use when internet connectivity is limited.",
+        "Yes! Premium users can download comprehensive offline packages including detailed maps, safety zones, emergency contacts, and transportation hubs for any destination. The offline mode works for up to 30 days.",
     },
     {
-      question: "Is my personal information secure?",
+      question: "How does Travelitin protect my personal data?",
       answer:
-        "Absolutely. We use enterprise-grade encryption and never share your personal data with third parties. Your privacy is our priority.",
+        "We use enterprise-grade encryption for all data transmission and storage. Your location data is anonymized and never shared with third parties. We're GDPR compliant and you can delete your account and data at any time.",
     },
     {
-      question: "How do I get emergency assistance?",
+      question: "What should I do in case of an emergency while traveling?",
       answer:
-        "Travelitin provides 24/7 emergency support through our app. You can instantly connect with local emergency services and our support team.",
+        "Travelitin provides multiple emergency options: one-tap emergency button for local services, 24/7 multilingual support, automatic location sharing with emergency contacts, and direct connection to embassies when needed.",
+    },
+    {
+      question: "Which countries does Travelitin cover?",
+      answer:
+        "Travelitin provides comprehensive coverage for 195+ countries and territories worldwide, including detailed safety data for over 10,000 cities and remote destinations.",
     },
   ];
 

@@ -1,35 +1,46 @@
-import { motion } from "framer-motion";
-import { AnimatedSection } from "./AnimatedSection";
-import { CreativeOceanWorld } from "./BackgroundAnimations";
 import { useStaggerAnimation } from "@/hooks/useScrollAnimation";
-import { Star } from "lucide-react";
+import { motion } from "framer-motion";
+import { Cpu, Rocket, Star, Zap } from "lucide-react";
+import { AnimatedSection } from "./AnimatedSection";
+import { FuturisticTechBackground } from "./BackgroundAnimations";
 
 export const UpcomingFeaturesSection = () => {
   const { staggerContainer, staggerItem } = useStaggerAnimation();
 
   const upcomingFeatures = [
     {
+      icon: Cpu,
       title: "AI Travel Assistant",
       description:
-        "Personalized recommendations powered by artificial intelligence",
-      status: "Coming Q1 2024",
+        "Personalized recommendations powered by advanced artificial intelligence and machine learning algorithms",
+      status: "Coming Q1 2025",
+      color: "from-blue-400 to-cyan-400",
     },
     {
-      title: "Offline Maps",
-      description: "Access detailed maps even without internet connection",
-      status: "Coming Q2 2024",
+      icon: Zap,
+      title: "Offline Maps & Navigation",
+      description:
+        "Lightning-fast access to detailed maps and navigation even without internet connection",
+      status: "Coming Q2 2025",
+      color: "from-purple-400 to-pink-400",
     },
     {
-      title: "Group Travel Planning",
-      description: "Coordinate and plan trips with friends and family",
-      status: "Coming Q2 2024",
+      icon: Rocket,
+      title: "Smart Group Planning",
+      description:
+        "Next-generation collaborative trip planning with real-time synchronization and AI optimization",
+      status: "Coming Q3 2025",
+      color: "from-green-400 to-emerald-400",
     },
   ];
 
   return (
-    <section id="upcoming" className="py-20 bg-white relative overflow-hidden">
-      {/* Creative Ocean World Background */}
-      <CreativeOceanWorld />
+    <section
+      id="upcoming"
+      className="py-20 bg-gradient-to-br from-slate-50 via-blue-50 to-purple-50 relative overflow-hidden"
+    >
+      {/* Futuristic Tech Background */}
+      <FuturisticTechBackground />
 
       <div className="container mx-auto px-4 relative z-10">
         <AnimatedSection className="text-center mb-16">
@@ -71,23 +82,26 @@ export const UpcomingFeaturesSection = () => {
                 scale: 1.05,
                 boxShadow: "0 25px 50px rgba(0,0,0,0.15)",
               }}
-              className="bg-gradient-to-br from-yellow-50 to-orange-50 p-8 rounded-2xl border border-yellow-200 text-center group"
+              className="bg-white/80 backdrop-blur-sm p-8 rounded-3xl border border-white/20 text-center group shadow-xl hover:shadow-2xl transition-all duration-300"
             >
               <motion.div
-                whileHover={{ scale: 1.2, rotate: 10 }}
-                className="w-16 h-16 bg-yellow-400 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg group-hover:bg-yellow-500 transition-colors"
+                whileHover={{ scale: 1.15, rotate: 5 }}
+                className={`w-20 h-20 bg-gradient-to-r ${feature.color} rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-xl group-hover:shadow-2xl transition-all duration-300`}
               >
-                <Star className="w-8 h-8 text-yellow-900" />
+                <feature.icon className="w-10 h-10 text-white drop-shadow-lg" />
               </motion.div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-4 group-hover:text-yellow-600 transition-colors">
+              <h3 className="text-2xl font-bold text-gray-900 mb-4 group-hover:bg-gradient-to-r group-hover:from-blue-600 group-hover:to-purple-600 group-hover:bg-clip-text group-hover:text-transparent transition-all duration-300">
                 {feature.title}
               </h3>
-              <p className="text-gray-600 mb-6 leading-relaxed">
+              <p className="text-gray-600 mb-8 leading-relaxed text-sm">
                 {feature.description}
               </p>
               <motion.div
-                whileHover={{ scale: 1.05 }}
-                className="inline-block px-4 py-2 bg-yellow-400 text-yellow-900 rounded-full text-sm font-semibold shadow-md"
+                whileHover={{
+                  scale: 1.05,
+                  boxShadow: "0 10px 25px rgba(59, 130, 246, 0.3)",
+                }}
+                className={`inline-block px-6 py-3 bg-gradient-to-r ${feature.color} text-white rounded-full text-sm font-bold shadow-lg hover:shadow-xl transition-all duration-300`}
               >
                 {feature.status}
               </motion.div>

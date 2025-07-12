@@ -18,53 +18,87 @@ import {
 export const FeaturesSection = () => {
   const { staggerContainer, staggerItem } = useStaggerAnimation();
 
-  const features = [
+  const featureCategories = [
     {
-      icon: Shield,
-      title: "Safety Information",
-      description:
-        "Real-time safety updates and comprehensive destination guides",
+      category: "Safety & Security",
+      color: "from-red-400 to-red-600",
+      features: [
+        {
+          icon: Shield,
+          title: "Real-time Safety Intelligence",
+          description:
+            "AI-powered safety updates with government advisories, local incidents, and crowd-sourced reports from verified travelers",
+          badge: "AI-Powered",
+        },
+        {
+          icon: AlertTriangle,
+          title: "Instant Emergency Alerts",
+          description:
+            "Immediate push notifications for natural disasters, political unrest, health emergencies, and security threats in your area",
+          badge: "Real-time",
+        },
+        {
+          icon: Ban,
+          title: "Advanced Scam Protection",
+          description:
+            "Machine learning algorithms detect and warn against common tourist scams, fake booking sites, and fraudulent activities",
+          badge: "ML-Protected",
+        },
+      ],
     },
     {
-      icon: Map,
-      title: "Interactive Maps",
-      description: "Detailed maps with safety zones and local information",
+      category: "Navigation & Discovery",
+      color: "from-blue-400 to-blue-600",
+      features: [
+        {
+          icon: Map,
+          title: "Smart Interactive Maps",
+          description:
+            "Offline-capable maps with safety zones, verified attractions, local transportation hubs, and emergency service locations",
+          badge: "Offline Ready",
+        },
+        {
+          icon: Bed,
+          title: "Verified Safe Stays",
+          description:
+            "Curated accommodations with safety certifications, verified reviews from solo travelers, and 24/7 host verification",
+          badge: "Verified",
+        },
+        {
+          icon: Utensils,
+          title: "Trusted Food & Dining",
+          description:
+            "Restaurant recommendations with hygiene ratings, dietary accommodations, and local cuisine guides from food safety experts",
+          badge: "Expert Rated",
+        },
+      ],
     },
     {
-      icon: AlertTriangle,
-      title: "Emergency Alerts",
-      description:
-        "Instant notifications about potential risks and emergencies",
-    },
-    {
-      icon: Users,
-      title: "Community Support",
-      description: "Connect with fellow travelers and local communities",
-    },
-    {
-      icon: DollarSign,
-      title: "Budget Tracking",
-      description: "Keep track of your expenses with smart budgeting tools",
-    },
-    {
-      icon: Ban,
-      title: "Scam Protection",
-      description: "Stay protected from common travel scams and frauds",
-    },
-    {
-      icon: Bed,
-      title: "Safe Accommodation",
-      description: "Verified and secure lodging recommendations",
-    },
-    {
-      icon: Utensils,
-      title: "Food Safety",
-      description: "Restaurant recommendations with health and safety ratings",
-    },
-    {
-      icon: Star,
-      title: "24/7 Support",
-      description: "Round-the-clock assistance whenever you need help",
+      category: "Community & Support",
+      color: "from-green-400 to-green-600",
+      features: [
+        {
+          icon: Users,
+          title: "Global Traveler Network",
+          description:
+            "Connect with verified travelers, join local meetups, find travel buddies, and access community-driven safety insights",
+          badge: "2M+ Members",
+        },
+        {
+          icon: Star,
+          title: "24/7 Concierge Support",
+          description:
+            "Round-the-clock multilingual assistance with emergency coordination, travel rebooking, and local expert consultations",
+          badge: "Always Available",
+        },
+        {
+          icon: DollarSign,
+          title: "Smart Budget Assistant",
+          description:
+            "AI-powered expense tracking with local price comparisons, currency conversion, and spending optimization recommendations",
+          badge: "AI Assistant",
+        },
+      ],
     },
   ];
 
@@ -74,78 +108,109 @@ export const FeaturesSection = () => {
       <AestheticFeaturesBackground />
 
       <div className="container mx-auto px-4">
-        <AnimatedSection className="text-center mb-16">
+        <AnimatedSection className="text-center mb-20">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="inline-block bg-yellow-100 text-yellow-800 px-4 py-2 rounded-full text-sm font-semibold mb-4"
+          >
+            Everything You Need for Safe Travel
+          </motion.div>
           <motion.h2
             whileInView={{ scale: [0.8, 1.1, 1] }}
             transition={{ duration: 1 }}
-            className="text-4xl md:text-5xl font-bold text-gray-900 mb-4"
+            className="text-4xl md:text-6xl font-bold text-gray-900 mb-6"
           >
-            Features
+            Comprehensive Travel
+            <span className="bg-gradient-to-r from-yellow-400 to-orange-400 bg-clip-text text-transparent">
+              {" "}
+              Safety Suite
+            </span>
           </motion.h2>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed"
+          >
+            From real-time safety intelligence to 24/7 support, discover how our
+            platform keeps millions of travelers safe worldwide
+          </motion.p>
         </AnimatedSection>
 
-        <motion.div
-          variants={staggerContainer}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-50px" }}
-          className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 relative z-10"
-        >
-          {features.map((feature, index) => (
+        <div className="space-y-20">
+          {featureCategories.map((category, categoryIndex) => (
             <motion.div
-              key={index}
-              variants={staggerItem}
-              whileHover={{
-                scale: 1.05,
-                boxShadow: "0 25px 50px rgba(0,0,0,0.15)",
-              }}
-              className="bg-white p-8 rounded-2xl shadow-lg border border-gray-100 group relative overflow-hidden"
+              key={category.category}
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: categoryIndex * 0.2 }}
+              viewport={{ once: true, margin: "-50px" }}
+              className="relative"
             >
+              {/* Category Header */}
+              <div className="text-center mb-12">
+                <motion.div
+                  whileInView={{ scale: [0.8, 1.1, 1] }}
+                  transition={{ duration: 0.8 }}
+                  className={`inline-block px-6 py-3 rounded-full bg-gradient-to-r ${category.color} text-white font-bold text-lg mb-4 shadow-lg`}
+                >
+                  {category.category}
+                </motion.div>
+              </div>
+
+              {/* Features Grid */}
               <motion.div
-                whileHover={{
-                  scale: 1.2,
-                  rotate: 10,
-                  boxShadow: "0 10px 25px rgba(250, 204, 21, 0.4)",
-                }}
-                className="w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 bg-yellow-400 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-yellow-500 transition-colors shadow-lg"
+                variants={staggerContainer}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: "-50px" }}
+                className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 relative z-10"
               >
-                <feature.icon className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 text-yellow-900" />
+                {category.features.map((feature, index) => (
+                  <motion.div
+                    key={index}
+                    variants={staggerItem}
+                    whileHover={{
+                      y: -8,
+                      boxShadow: "0 20px 40px rgba(0,0,0,0.1)",
+                    }}
+                    className="bg-white p-8 rounded-3xl shadow-xl border border-gray-100 group relative overflow-hidden"
+                  >
+                    {/* Badge */}
+                    <motion.div
+                      initial={{ opacity: 0, scale: 0 }}
+                      whileInView={{ opacity: 1, scale: 1 }}
+                      transition={{ delay: 0.3, type: "spring" }}
+                      className="absolute top-4 right-4 bg-yellow-400 text-yellow-900 px-3 py-1 rounded-full text-xs font-bold"
+                    >
+                      {feature.badge}
+                    </motion.div>
+
+                    <motion.div
+                      whileHover={{
+                        scale: 1.1,
+                        rotate: 5,
+                      }}
+                      className={`w-16 h-16 bg-gradient-to-r ${category.color} rounded-2xl flex items-center justify-center mb-6 shadow-lg`}
+                    >
+                      <feature.icon className="w-8 h-8 text-white" />
+                    </motion.div>
+
+                    <motion.h3 className="text-xl font-bold text-gray-900 mb-4 leading-tight">
+                      {feature.title}
+                    </motion.h3>
+
+                    <p className="text-gray-600 leading-relaxed text-sm">
+                      {feature.description}
+                    </p>
+                  </motion.div>
+                ))}
               </motion.div>
-              <motion.h3
-                whileHover={{ color: "#EAB308" }}
-                className="text-xl font-bold text-gray-900 mb-4 text-center group-hover:text-yellow-600 transition-colors"
-              >
-                {feature.title}
-              </motion.h3>
-              <p className="text-gray-600 text-center leading-relaxed">
-                {feature.description}
-              </p>
-
-              {/* Decorative elements */}
-              <FloatingIcon delay={0} amplitude={8}>
-                <motion.div
-                  initial={{ opacity: 0, scale: 0 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  transition={{ delay: 0.5, type: "spring" }}
-                  className="absolute -top-4 -right-4 w-10 h-10 sm:w-12 sm:h-12 md:w-16 md:h-16 bg-yellow-300 rounded-full flex items-center justify-center shadow-lg"
-                >
-                  <Star className="w-4 h-4 sm:w-6 sm:h-6 md:w-8 md:h-8 text-yellow-800" />
-                </motion.div>
-              </FloatingIcon>
-
-              <FloatingIcon delay={1} amplitude={6}>
-                <motion.div
-                  initial={{ opacity: 0, scale: 0 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  transition={{ delay: 0.7, type: "spring" }}
-                  className="absolute -bottom-4 -left-4 w-10 h-10 sm:w-12 sm:h-12 md:w-16 md:h-16 bg-orange-300 rounded-full flex items-center justify-center shadow-lg"
-                >
-                  <Shield className="w-4 h-4 sm:w-6 sm:h-6 md:w-8 md:h-8 text-orange-800" />
-                </motion.div>
-              </FloatingIcon>
             </motion.div>
           ))}
-        </motion.div>
+        </div>
       </div>
     </section>
   );

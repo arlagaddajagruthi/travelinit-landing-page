@@ -1,121 +1,234 @@
-import { useState, useEffect } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
 import { useMousePosition } from "@/hooks/useMousePosition";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useEffect, useState } from "react";
 
 export const CreativeClouds = () => {
   const { scrollY } = useScroll();
-  const cloudOpacity = useTransform(scrollY, [0, 1000], [0.8, 0.2]);
+  const cloudOpacity = useTransform(scrollY, [0, 1000], [0.9, 0.3]);
 
   return (
     <motion.div
       className="absolute inset-0 overflow-hidden pointer-events-none"
       style={{ opacity: cloudOpacity }}
     >
-      {/* Realistic Wind Lines */}
-      {[...Array(15)].map((_, i) => (
+      {/* Enhanced Realistic Wind Streams */}
+      {[...Array(20)].map((_, i) => (
         <motion.div
-          key={`wind-${i}`}
+          key={`wind-stream-${i}`}
           className="absolute"
           style={{
-            width: Math.random() * 200 + 100,
-            height: 2,
-            top: `${Math.random() * 60 + 20}%`,
-            left: `-10%`,
-            background: `linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.4) 20%, rgba(255,255,255,0.6) 50%, rgba(255,255,255,0.4) 80%, transparent 100%)`,
-            borderRadius: "2px",
+            width: Math.random() * 300 + 150,
+            height: Math.random() * 4 + 2,
+            top: `${Math.random() * 80 + 10}%`,
+            left: `-15%`,
+            background: `linear-gradient(90deg,
+              transparent 0%,
+              rgba(255,255,255,0.2) 15%,
+              rgba(255,255,255,0.6) 30%,
+              rgba(255,255,255,0.8) 50%,
+              rgba(255,255,255,0.6) 70%,
+              rgba(255,255,255,0.2) 85%,
+              transparent 100%)`,
+            borderRadius: "50px",
+            filter: "blur(1px)",
           }}
           animate={{
-            x: ["0vw", "120vw"],
-            opacity: [0, 0.8, 1, 0.8, 0],
-            scaleX: [0.5, 1.5, 1, 0.5],
+            x: ["0vw", "130vw"],
+            opacity: [0, 0.6, 1, 0.8, 0],
+            scaleX: [0.3, 1.8, 1.4, 0.6, 0.3],
+            scaleY: [1, 1.5, 1.2, 1, 1],
           }}
           transition={{
-            duration: Math.random() * 8 + 4,
+            duration: Math.random() * 12 + 8,
             repeat: Infinity,
             ease: "easeInOut",
+            delay: Math.random() * 8,
+          }}
+        />
+      ))}
+
+      {/* Floating Sparkle Particles */}
+      {[...Array(40)].map((_, i) => (
+        <motion.div
+          key={`sparkle-${i}`}
+          className="absolute"
+          style={{
+            width: Math.random() * 3 + 1,
+            height: Math.random() * 3 + 1,
+            top: `${Math.random() * 80 + 10}%`,
+            left: `-8%`,
+            background: `radial-gradient(circle, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.4) 50%, transparent 100%)`,
+            borderRadius: "50%",
+            filter: "blur(0.5px)",
+          }}
+          animate={{
+            x: ["0vw", "110vw"],
+            y: [0, Math.sin(i * 0.4) * 50, Math.cos(i * 0.3) * 30],
+            opacity: [0, 0.8, 1, 0.6, 0],
+            scale: [0, 1.5, 1, 1.2, 0],
+          }}
+          transition={{
+            duration: Math.random() * 10 + 6,
+            repeat: Infinity,
+            ease: "linear",
             delay: Math.random() * 6,
           }}
         />
       ))}
 
-      {/* Wind particles */}
-      {[...Array(25)].map((_, i) => (
+      {/* Layered Realistic Clouds */}
+      {[...Array(8)].map((_, i) => {
+        const cloudSize = Math.random() * 200 + 120;
+        const cloudHeight = cloudSize * 0.6;
+        return (
+          <motion.div
+            key={`cloud-${i}`}
+            className="absolute"
+            style={{
+              width: cloudSize,
+              height: cloudHeight,
+              top: `${Math.random() * 60 + 10}%`,
+              left: `-${Math.random() * 40 + 20}%`,
+            }}
+            animate={{
+              x: ["0vw", "140vw"],
+              scale: [0.7, 1.3, 1.1, 0.8],
+            }}
+            transition={{
+              duration: Math.random() * 60 + 80,
+              repeat: Infinity,
+              ease: "linear",
+              delay: Math.random() * 30,
+            }}
+          >
+            <div className="relative w-full h-full">
+              {/* Cloud Base */}
+              <motion.div
+                className="absolute inset-0 bg-white/25 rounded-full blur-xl"
+                animate={{
+                  scale: [1, 1.1, 1],
+                  opacity: [0.3, 0.5, 0.3],
+                }}
+                transition={{
+                  duration: Math.random() * 8 + 6,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
+              />
+              {/* Cloud Middle Layer */}
+              <motion.div
+                className="absolute inset-4 bg-white/20 rounded-full blur-lg"
+                animate={{
+                  scale: [1, 1.15, 1],
+                  x: [0, 10, 0],
+                }}
+                transition={{
+                  duration: Math.random() * 6 + 4,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                  delay: 1,
+                }}
+              />
+              {/* Cloud Core */}
+              <motion.div
+                className="absolute inset-8 bg-white/15 rounded-full blur-md"
+                animate={{
+                  scale: [1, 1.2, 1],
+                  y: [0, -5, 0],
+                }}
+                transition={{
+                  duration: Math.random() * 4 + 3,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                  delay: 2,
+                }}
+              />
+              {/* Cloud Highlights */}
+              <motion.div
+                className="absolute top-4 left-8 w-3/4 h-1/2 bg-white/10 rounded-full blur-sm"
+                animate={{
+                  opacity: [0.2, 0.4, 0.2],
+                  scale: [1, 1.1, 1],
+                }}
+                transition={{
+                  duration: Math.random() * 5 + 3,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                  delay: 0.5,
+                }}
+              />
+            </div>
+          </motion.div>
+        );
+      })}
+
+      {/* Enhanced Flying Elements */}
+      {["🕊️", "✈️", "🦋"].map((element, i) => (
         <motion.div
-          key={`wind-particle-${i}`}
-          className="absolute w-1 h-1 bg-white/50 rounded-full"
+          key={`flying-${i}`}
+          className="absolute text-white/50 drop-shadow-lg"
           style={{
-            top: `${Math.random() * 70 + 15}%`,
-            left: `-5%`,
+            fontSize: Math.random() * 8 + 16,
+            top: `${15 + Math.sin(i) * 15}%`,
+            left: `-8%`,
+            filter: "drop-shadow(0 4px 8px rgba(0,0,0,0.2))",
           }}
           animate={{
-            x: ["0vw", "105vw"],
-            y: [0, Math.sin(i * 0.3) * 30],
-            opacity: [0, 1, 1, 0],
-            scale: [0, 1, 1, 0],
+            x: ["0vw", "108vw"],
+            y: [0, Math.sin(i * 0.6) * 40, Math.cos(i * 0.4) * 25, 0],
+            rotate: [0, 5, -5, 0],
+            scale: [0.8, 1.2, 1, 0.9],
           }}
           transition={{
-            duration: Math.random() * 6 + 3,
+            duration: 50 + i * 5,
             repeat: Infinity,
-            ease: "linear",
-            delay: Math.random() * 4,
+            ease: "easeInOut",
+            delay: i * 8,
           }}
-        />
+        >
+          <motion.div
+            animate={{
+              rotate: [0, 10, -10, 0],
+            }}
+            transition={{
+              duration: Math.random() * 3 + 2,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+          >
+            {element}
+          </motion.div>
+        </motion.div>
       ))}
 
-      {/* Dynamic 3D Cloud Formations */}
-      {[...Array(12)].map((_, i) => (
+      {/* Ambient Light Rays */}
+      {[...Array(6)].map((_, i) => (
         <motion.div
-          key={i}
+          key={`light-ray-${i}`}
           className="absolute"
           style={{
-            width: Math.random() * 150 + 80,
-            height: Math.random() * 80 + 40,
-            top: `${Math.random() * 70}%`,
-            left: `-${Math.random() * 30 + 15}%`,
+            width: 2,
+            height: Math.random() * 400 + 200,
+            top: `-10%`,
+            left: `${Math.random() * 100}%`,
+            background: `linear-gradient(180deg,
+              rgba(255,255,255,0.3) 0%,
+              rgba(255,255,255,0.1) 50%,
+              transparent 100%)`,
+            transform: `rotate(${Math.random() * 20 - 10}deg)`,
+            filter: "blur(1px)",
           }}
           animate={{
-            x: ["0vw", "130vw"],
-            scale: [0.8, 1.2, 0.8],
-            rotate: [0, 360],
+            opacity: [0, 0.6, 0.3, 0.8, 0],
+            scaleY: [0.8, 1.2, 1, 1.1, 0.8],
           }}
           transition={{
-            duration: Math.random() * 40 + 60,
+            duration: Math.random() * 8 + 6,
             repeat: Infinity,
-            ease: "linear",
-            delay: Math.random() * 20,
+            ease: "easeInOut",
+            delay: Math.random() * 5,
           }}
-        >
-          <div className="relative w-full h-full">
-            <div className="absolute inset-0 bg-white/20 rounded-full blur-md" />
-            <div className="absolute inset-2 bg-white/15 rounded-full blur-sm" />
-            <div className="absolute inset-4 bg-white/10 rounded-full" />
-            <div className="absolute top-2 left-2 w-full h-full bg-gray-400/10 rounded-full blur-lg" />
-          </div>
-        </motion.div>
-      ))}
-
-      {/* Flying birds in formation */}
-      {[...Array(8)].map((_, i) => (
-        <motion.div
-          key={`bird-${i}`}
-          className="absolute text-white/40 text-sm"
-          style={{
-            top: `${15 + Math.sin(i) * 10}%`,
-            left: `-5%`,
-          }}
-          animate={{
-            x: ["0vw", "105vw"],
-            y: [0, Math.sin(i * 0.5) * 20, 0],
-          }}
-          transition={{
-            duration: 45 + i * 2,
-            repeat: Infinity,
-            ease: "linear",
-            delay: i * 2,
-          }}
-        >
-          🕊️
-        </motion.div>
+        />
       ))}
     </motion.div>
   );
@@ -684,6 +797,219 @@ export const CreativeTravelElements = () => {
           }}
         >
           {item}
+        </motion.div>
+      ))}
+    </div>
+  );
+};
+
+export const FuturisticTechBackground = () => {
+  const mousePos = useMousePosition();
+
+  return (
+    <div className="absolute inset-0 overflow-hidden pointer-events-none">
+      {/* Digital Grid Pattern */}
+      <motion.div
+        className="absolute inset-0 opacity-20"
+        animate={{
+          opacity: [0.1, 0.3, 0.1],
+        }}
+        transition={{
+          duration: 8,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+      >
+        <svg
+          className="w-full h-full"
+          viewBox="0 0 100 100"
+          preserveAspectRatio="none"
+        >
+          <defs>
+            <pattern
+              id="grid"
+              width="10"
+              height="10"
+              patternUnits="userSpaceOnUse"
+            >
+              <path
+                d="M 10 0 L 0 0 0 10"
+                fill="none"
+                stroke="#3b82f6"
+                strokeWidth="0.2"
+                opacity="0.6"
+              />
+            </pattern>
+          </defs>
+          <rect width="100" height="100" fill="url(#grid)" />
+        </svg>
+      </motion.div>
+
+      {/* Floating AI/Tech Icons */}
+      {["🤖", "📱", "📊", "✨", "🚀", "🌍", "💻", "🔍"].map((icon, i) => (
+        <motion.div
+          key={`tech-icon-${i}`}
+          className="absolute"
+          style={{
+            fontSize: Math.random() * 20 + 25,
+            left: `${Math.random() * 90 + 5}%`,
+            top: `${Math.random() * 80 + 10}%`,
+            filter: "drop-shadow(0 6px 12px rgba(59, 130, 246, 0.3))",
+          }}
+          animate={{
+            y: [
+              0,
+              Math.sin(i * 0.8) * 60 +
+                (mousePos.y - window.innerHeight / 2) * 0.02,
+              Math.cos(i * 0.6) * 40,
+              0,
+            ],
+            x: [
+              0,
+              Math.cos(i * 0.9) * 50 +
+                (mousePos.x - window.innerWidth / 2) * 0.03,
+              Math.sin(i * 0.7) * 35,
+              0,
+            ],
+            rotate: [0, 20, -20, 0],
+            scale: [1, 1.2, 0.9, 1],
+          }}
+          transition={{
+            duration: Math.random() * 12 + 10,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: Math.random() * 8,
+          }}
+        >
+          <div className="relative">
+            <div className="text-blue-400/70">{icon}</div>
+            <div className="absolute inset-0 text-blue-300/30 blur-sm scale-110">
+              {icon}
+            </div>
+            <div className="absolute inset-0 text-purple-400/20 blur-md scale-125">
+              {icon}
+            </div>
+          </div>
+        </motion.div>
+      ))}
+
+      {/* Flowing Data Streams */}
+      {[...Array(12)].map((_, i) => (
+        <motion.div
+          key={`data-stream-${i}`}
+          className="absolute"
+          style={{
+            width: Math.random() * 200 + 100,
+            height: 2,
+            top: `${Math.random() * 80 + 10}%`,
+            left: `-15%`,
+            background: `linear-gradient(90deg,
+              transparent 0%,
+              rgba(59, 130, 246, 0.3) 20%,
+              rgba(147, 197, 253, 0.7) 50%,
+              rgba(59, 130, 246, 0.3) 80%,
+              transparent 100%)`,
+            borderRadius: "2px",
+            filter: "blur(0.5px)",
+          }}
+          animate={{
+            x: ["0vw", "120vw"],
+            opacity: [0, 0.8, 1, 0.6, 0],
+            scaleX: [0.5, 2, 1.5, 0.8, 0.5],
+          }}
+          transition={{
+            duration: Math.random() * 8 + 6,
+            repeat: Infinity,
+            ease: "linear",
+            delay: Math.random() * 6,
+          }}
+        />
+      ))}
+
+      {/* Glowing Orbs */}
+      {[...Array(6)].map((_, i) => (
+        <motion.div
+          key={`tech-orb-${i}`}
+          className="absolute rounded-full"
+          style={{
+            width: Math.random() * 80 + 40,
+            height: Math.random() * 80 + 40,
+            left: `${Math.random() * 100}%`,
+            top: `${Math.random() * 100}%`,
+            background: `radial-gradient(circle,
+              rgba(59, 130, 246, 0.4) 0%,
+              rgba(147, 197, 253, 0.2) 40%,
+              rgba(236, 72, 153, 0.1) 70%,
+              transparent 100%)`,
+            filter: "blur(20px)",
+          }}
+          animate={{
+            scale: [0.8, 1.5, 1.2, 0.8],
+            opacity: [0.3, 0.8, 0.5, 0.3],
+            x: [0, Math.random() * 100 - 50],
+            y: [0, Math.random() * 80 - 40],
+          }}
+          transition={{
+            duration: Math.random() * 15 + 12,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: Math.random() * 6,
+          }}
+        />
+      ))}
+
+      {/* Binary Code Rain */}
+      {[...Array(15)].map((_, i) => (
+        <motion.div
+          key={`binary-${i}`}
+          className="absolute text-blue-400/30 font-mono text-xs"
+          style={{
+            top: `-10%`,
+            left: `${Math.random() * 100}%`,
+          }}
+          animate={{
+            y: ["0vh", "110vh"],
+            opacity: [0, 0.8, 0.6, 0],
+          }}
+          transition={{
+            duration: Math.random() * 8 + 6,
+            repeat: Infinity,
+            ease: "linear",
+            delay: Math.random() * 4,
+          }}
+        >
+          {Array.from({ length: 10 }, () => Math.round(Math.random())).join("")}
+        </motion.div>
+      ))}
+
+      {/* Future Tech Badges */}
+      {["AI", "IoT", "5G", "AR", "VR", "ML"].map((tech, i) => (
+        <motion.div
+          key={`tech-badge-${i}`}
+          className="absolute"
+          style={{
+            left: `${Math.random() * 80 + 10}%`,
+            top: `${Math.random() * 70 + 15}%`,
+          }}
+          animate={{
+            y: [0, Math.sin(i * 1.2) * 30, 0],
+            x: [0, Math.cos(i * 0.8) * 25, 0],
+            scale: [1, 1.15, 1],
+            opacity: [0.4, 0.8, 0.4],
+          }}
+          transition={{
+            duration: Math.random() * 10 + 8,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: Math.random() * 6,
+          }}
+        >
+          <div className="relative">
+            <div className="px-3 py-1 bg-gradient-to-r from-blue-500/20 to-purple-500/20 backdrop-blur-sm rounded-full border border-blue-400/30 shadow-lg">
+              <span className="text-blue-300/80 text-xs font-bold">{tech}</span>
+            </div>
+            <div className="absolute inset-0 bg-blue-400/10 rounded-full blur-md scale-110" />
+          </div>
         </motion.div>
       ))}
     </div>

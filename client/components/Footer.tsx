@@ -1,121 +1,153 @@
 import { motion } from "framer-motion";
-import { Heart } from "lucide-react";
+import {
+  Facebook,
+  Instagram,
+  Linkedin,
+  Mail,
+  MapPin,
+  Phone,
+  Twitter,
+  Youtube
+} from "lucide-react";
 
 export const Footer = () => {
-  const footerLinks = {
-    Company: ["About", "Features", "Contact", "Feedback Form"],
-    Support: ["Help Center", "Safety Guidelines", "Emergency Contact", "FAQ"],
-    Legal: [
-      "Privacy Policy",
-      "Terms of Service",
-      "Cookie Policy",
-      "Disclaimer",
-    ],
-  };
+  const mainLinks = [
+    { name: "About", href: "#about" },
+    { name: "Features", href: "#features" },
+    { name: "Contact", href: "#contact" },
+    { name: "Feedback Form", href: "#feedback" },
+  ];
+
+  const legalLinks = [
+    { name: "Privacy Policy", href: "#privacy" },
+    { name: "Terms of Use", href: "#terms" },
+  ];
+
+  const socialLinks = [
+    { icon: Facebook, href: "#", name: "Facebook" },
+    { icon: Twitter, href: "#", name: "Twitter" },
+    { icon: Instagram, href: "#", name: "Instagram" },
+    { icon: Linkedin, href: "#", name: "LinkedIn" },
+    { icon: Youtube, href: "#", name: "YouTube" },
+  ];
+
+  const contactInfo = [
+    {
+      icon: Mail,
+      text: "support@travelitin.com",
+      href: "mailto:support@travelitin.com",
+    },
+    { icon: Phone, text: "+1 (555) 123-4567", href: "tel:+15551234567" },
+    { icon: MapPin, text: "San Francisco, CA", href: "#" },
+  ];
 
   return (
-    <footer className="bg-gray-900 text-white py-16 relative overflow-hidden">
-      {/* Background decoration */}
-      <div className="absolute inset-0 opacity-10">
-        {[...Array(20)].map((_, i) => (
-          <motion.div
-            key={i}
-            className="absolute w-1 h-1 bg-yellow-400 rounded-full"
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-            }}
-            animate={{
-              scale: [0, 1, 0],
-              opacity: [0, 1, 0],
-            }}
-            transition={{
-              duration: Math.random() * 3 + 2,
-              repeat: Infinity,
-              delay: Math.random() * 2,
-            }}
-          />
-        ))}
-      </div>
-
+    <footer className="bg-[#111827] text-white py-16 relative overflow-hidden">
       <div className="container mx-auto px-4 relative z-10">
-        <div className="grid md:grid-cols-4 gap-8 mb-12">
-          {/* Logo and description */}
-          <motion.div
+        {/* Main Content */}
+        <div className="text-center mb-12">
+          {/* Logo */}
+          <motion.img
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="md:col-span-1"
+            whileHover={{ scale: 1.05 }}
+            src="/logo.jpg"
+            alt="Travelitin Logo"
+            className="h-12 w-auto mx-auto mb-8"
+          />
+
+          {/* Main Links */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="flex flex-wrap justify-center gap-8 mb-8"
           >
-            <motion.img
-              whileHover={{ scale: 1.05 }}
-              src="https://cdn.builder.io/api/v1/image/assets%2F33aab6c1f232494f879f8655f36222ea%2F6ebc9bbf164145e48ad1f2d27e30db25?format=webp&width=800"
-              alt="Travelitin Logo"
-              className="h-12 w-auto mb-4"
-            />
-            <p className="text-gray-400 leading-relaxed">
-              Making travel safer and more accessible for everyone, everywhere.
-            </p>
+            {mainLinks.map((link, index) => (
+              <motion.a
+                key={link.name}
+                href={link.href}
+                whileHover={{
+                  color: "#FDE047",
+                  scale: 1.05,
+                }}
+                className="text-white hover:text-yellow-300 transition-all duration-200 font-medium"
+              >
+                {link.name}
+              </motion.a>
+            ))}
           </motion.div>
 
-          {/* Footer links */}
-          {Object.entries(footerLinks).map(([category, links], index) => (
-            <motion.div
-              key={category}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
+          {/* Contact Email */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            className="mb-8"
+          >
+            <motion.a
+              href="mailto:contact@travelinit.com"
+              whileHover={{ color: "#FDE047", scale: 1.05 }}
+              className="flex items-center justify-center gap-2 text-white hover:text-yellow-300 transition-all duration-200"
             >
-              <h4 className="text-lg font-semibold mb-4 text-yellow-400">
-                {category}
-              </h4>
-              <ul className="space-y-2">
-                {links.map((link, linkIndex) => (
-                  <motion.li key={linkIndex}>
-                    <motion.a
-                      whileHover={{
-                        color: "#FDE047",
-                        x: 5,
-                      }}
-                      href="#"
-                      className="text-gray-400 hover:text-yellow-300 transition-all duration-200"
-                    >
-                      {link}
-                    </motion.a>
-                  </motion.li>
-                ))}
-              </ul>
-            </motion.div>
-          ))}
+              <Mail className="w-5 h-5" />
+              <span>contact@travelinit.com</span>
+            </motion.a>
+          </motion.div>
+
+          {/* Social Media Icons */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.6 }}
+            className="flex justify-center gap-4 mb-12"
+          >
+            {socialLinks.map((social, index) => (
+              <motion.a
+                key={social.name}
+                href={social.href}
+                whileHover={{ scale: 1.2, y: -2 }}
+                whileTap={{ scale: 0.9 }}
+                className="w-10 h-10 bg-gray-700 hover:bg-yellow-400 hover:text-gray-900 rounded-full flex items-center justify-center transition-all duration-200"
+                title={social.name}
+              >
+                <social.icon className="w-5 h-5 text-yellow-400 hover:text-gray-900 transition-colors" />
+              </motion.a>
+            ))}
+          </motion.div>
         </div>
 
-        {/* Bottom section */}
+        {/* Bottom Section */}
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          className="pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center"
+          transition={{ duration: 0.8, delay: 0.8 }}
+          className="border-t border-gray-700 pt-8"
         >
-          <motion.div
-            whileHover={{ scale: 1.05 }}
-            className="flex items-center space-x-2 text-gray-400"
-          >
-            <span>Made with</span>
-            <motion.div
-              animate={{ scale: [1, 1.2, 1] }}
-              transition={{ duration: 1, repeat: Infinity, ease: "easeInOut" }}
-            >
-              <Heart className="w-5 h-5 text-red-500 fill-current" />
-            </motion.div>
-            <span>for travelers worldwide</span>
-          </motion.div>
+          {/* Copyright */}
+          <div className="text-center text-gray-400 mb-4">
+            <p>
+              © 2025 Travelitin Services Private Limited. All Rights Reserved.
+            </p>
+          </div>
 
-          <motion.div
-            whileHover={{ scale: 1.05 }}
-            className="text-gray-400 mt-4 md:mt-0"
-          >
-            <span>© 2024 Travelitin. All rights reserved.</span>
-          </motion.div>
+          {/* Legal Links */}
+          <div className="flex justify-center gap-4">
+            {legalLinks.map((link, index) => (
+              <motion.a
+                key={link.name}
+                href={link.href}
+                whileHover={{
+                  color: "#FDE047",
+                  scale: 1.05,
+                }}
+                className="text-gray-400 hover:text-yellow-300 transition-all duration-200 text-sm"
+              >
+                {link.name}
+              </motion.a>
+            ))}
+          </div>
         </motion.div>
       </div>
     </footer>

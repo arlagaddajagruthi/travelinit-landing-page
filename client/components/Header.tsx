@@ -1,8 +1,8 @@
-import { useState, useEffect } from "react";
-import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { Menu, X } from "lucide-react";
 import { useStaggerAnimation } from "@/hooks/useScrollAnimation";
+import { motion } from "framer-motion";
+import { Menu, X } from "lucide-react";
+import { useEffect, useState } from "react";
 
 export const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -50,7 +50,7 @@ export const Header = () => {
             <motion.img
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              src="https://cdn.builder.io/api/v1/image/assets%2F33aab6c1f232494f879f8655f36222ea%2F6ebc9bbf164145e48ad1f2d27e30db25?format=webp&width=800"
+              src="/logo.jpg"
               alt="Travelitin Logo"
               className="h-12 w-auto"
             />
