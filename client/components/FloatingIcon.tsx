@@ -14,6 +14,7 @@ export const FloatingIcon = ({
   duration = 4,
 }: FloatingIconProps) => (
   <motion.div
+    style={{ willChange: "transform" }}
     animate={{
       y: [-amplitude, amplitude, -amplitude],
       rotate: [-3, 3, -3],
